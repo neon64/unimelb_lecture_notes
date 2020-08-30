@@ -1,5 +1,11 @@
 # Lecture 9.2
 
+## Binary search trees:
+
+super quick searching!!!
+
+depth is on average $1.4 \log_2(n)$
+
 ```c
 // you need this advanced declaration so it can refer to itself
 typedef struct node node_t;
@@ -34,7 +40,7 @@ static node_t *rec_ins(tree->root, new, cmp) {
     } else if(cmp(new->data, root->data) < 0) {
         root->left = rec_ins(root->left, new, cmp);
     } else {
-        root->right = rec_ins(root->right, new, cmp);        
+        root->right = rec_ins(root->right, new, cmp);
     }
     return root;
 }
@@ -43,7 +49,7 @@ static node_t *rec_ins(tree->root, new, cmp) {
 ```c
 void print_then_free(void *x) {
     data_t *p = x;
-    printf("%..."); 
+    printf("%...");
     free(p);
 }
 ```

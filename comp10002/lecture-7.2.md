@@ -20,7 +20,7 @@ L[s] = 10, 9, 5
 
 L[h] = 10, 8, 4
 
-L[e] = 10, 7, 
+L[e] = 10, 7,
 
 L[l] = 10, 2, 1
 
@@ -89,4 +89,4 @@ then need a ternary quicksort...
 
 - partition on one character, at depth $d$ in the strings, then do **three** recursive calls
 
-# 
+#

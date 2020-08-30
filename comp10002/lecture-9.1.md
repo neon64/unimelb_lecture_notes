@@ -1,6 +1,6 @@
-# Lecture 9.1
+# Lecture 9.1 - linked lists
 
-## Linked Lists
+Example program:
 
 ```c
 int main(int argc, char *argv[]) {
@@ -24,11 +24,9 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-output:
-
 How to implement the list:
 
-```c
+```
 typedef struct node node_t;
 
 struct node {
@@ -66,7 +64,7 @@ list_t *insert_at_head(list_t *list, data_t value) {
     assert(list != NULL && new != NULL);
     new->data = value;
     new->next = list->head; // new head points where old head pointed
-    list->head = new; // pointing at new head, 
+    list->head = new; // pointing at new head,
     if(list->foot == NULL) {
         list->foot = new;
     }
@@ -89,24 +87,23 @@ list_t *insert_at_foot(list_t *list, data_t value) {
 }
 ```
 
-`list_t`
+(code attribution to Alistair Moffat)
 
-[head (points to value), foot (points to value)]
 
-`node_t`
 
-[value, next]
+
+
+## Types of linked-lists
 
 Singly-linked list:
-
-    - has only a next pointer;
+   - has only a next pointer
+- uses less space
+   - can be less efficient in some cases
 
 Doubly-linked-list:
+    - has a next and prev pointer
+    - requires more space
+    - more flexible, can iterate in both directions
 
-    - has a next and prev pointer;
 
-## Binary search trees:
 
-super quick searching!!!
-
-depth is on average $1.4 \log_2(n)$

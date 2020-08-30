@@ -81,6 +81,4 @@ modulo the table size
 
 - if the hash function is good, then we get O(1) behaviour... yay :D
 
-## Mergesort
 
-O(nlog(n)) - never bad

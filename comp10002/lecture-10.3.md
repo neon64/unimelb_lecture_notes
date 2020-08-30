@@ -1,51 +1,33 @@
-# Lecture 10.3
+# Lecture 10.3 - signed integer representations
 
-more on limited precision floating-point!!
+## Integer data types:
 
-`logsum.c`
+`unsigned char`, `unsigned short`, `unsigned int`, `unsigned long`
 
-$$
-\sum_{i=0}^n \frac{1}{i}
-$$
+- binary number (integer), non-negative
 
-- after n=4 you already get differences from different formulas
-1. subtracting numbers which may be close together - relative errors are magnified, absolute errors are additive
+>  computer scientists can count up to 1023 with two hands
+>
+> with toes, you can count up to 1 million!!!!
+>
+>  -Alistair
 
-2. adding large sets of small numbers to large numbers on by one
-   
-   1. to rectify: first build up a mass of small numbers, than add those to the big number
+but sometimes you want negative numbers.
 
-3. comparing values which are the result of floating point arithmetic
+With a 32-bit integer, largest number is ~4 billion
 
-use an "almost equals" comparison
+(hence max RAM size of 4GB by the way)
 
-## word
+## Options for negative integers:
 
-- four or eight bytes
-  
-  - isn't it always 16 bits??
-
-`char`, `short`, `int`, `long`
-
-- binary number
-
-- computer scientists can count up to 1023 with two hands
-
-- with toes, you can count up to 1 million!!!!
-
-but sometimes you want negative numbers, and also different number of bits per thingo
-
-32-bit integer, largest number is ~4 billion
-
-(hence max RAM size of 4GB)
-
-sign-magnitude encoding
+#### sign-magnitude encoding
 
 - we have `0` and `-0`!!!!
   
-  - ouch
+  - ouch.
+  - not a good option
 
-twos-complement encoding
+#### twos-complement encoding
 
 - the rightmost bit encodes $-2^{w-1}$
 
@@ -85,3 +67,21 @@ unsigned int %u
 unsigned long %lu
 unsigned long long %llu (at least 64 bits)
 ```
+
+
+
+32 bits to encode numbers
+
+`00000000 00000000 00000000 00000001 = 1`
+
+`00000000 00000000 00000000 00000110 = 6`
+
+`00000000 00000000 00000000 00000110 = 6`
+
+`11111111111111111111111111111010 = -6`
+
+`&`, `|` , `^`, `~`
+
+Note: `020` is octal,
+
+`0x20` is hexadecimal!!!

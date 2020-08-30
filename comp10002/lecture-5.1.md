@@ -14,7 +14,7 @@
 
 ```
 
-define R = 
+define R =
 
 (fe, fg) <- partition(A, n, p)
 
@@ -39,15 +39,47 @@ if ((outcome = cmp(A + next, pivot)) < 0) {
 if you have an aleady sorted array, then sometimes the chosen pivot will interfere
 
 - when choosing the first element as pivot:
-  
+
   - n root(n) - for an already sorted array
   - n^2 - reverse items
   - really fast for uniform items
   - n log(n) for random items
 
 - when choosing (n/2) as pivot
-  
   - super fast
+
+
+**Question: can quicksort be paralellized?**
+
+$$
+A[0..fe - 1] < p \\
+A[fe..\text{next}-1] = p \\
+A[fg..n - 1] > p
+$$
+
+To initialise, set $fe=0$, $\text{next}=fe, fg=n$
+
+Then increment *next*.
+
+If equal to p, just move $\text{next}$ on one.
+
+If ? < p, then swap with value at fe, then increment fe by one, increase next
+
+If ? > p, then swap with value at fg, then decrement fg by one, don't increase next
+
+When next = fg - there are no more unknown elements
+
+- next either increases, or fg decreases, therefore next will eventually meet with fg
+
+### Creating randomness
+
+- use
+
+```c
+rand() % n
+```
+
+- to always get the random case behaviour
 
 ## Algorithms compared
 
@@ -64,9 +96,9 @@ n - 1 swaps max
 - n comparison to do partition
 
 - if unlucky, biggest item is the pivot, one thing goes into right place, then must recurse into whole rest of list
-  
+
         - or smallest at front
-  
+
   - so end up with quadratic work - but *only* in the worst case
 
 - if we pick pivot = A[n/2]

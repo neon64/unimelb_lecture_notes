@@ -1,6 +1,8 @@
 # Lecture 12.2 - Mergesort etc...
 
-Mergesort
+## Mergesort
+
+$O(n \log(n))$ - not bad
 
 ```c
 

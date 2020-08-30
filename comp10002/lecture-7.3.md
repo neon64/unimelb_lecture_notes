@@ -25,4 +25,4 @@ What is the L[i] column?
 
 [suffix arrays and btw](https://web.stanford.edu/class/cs262/presentations/lecture5.pdf)
 
-everything we show is examinable, but to varying degrees - can't do everything within a given timeframe
+> everything we show is examinable, but to varying degrees - can't do everything within a given timeframe

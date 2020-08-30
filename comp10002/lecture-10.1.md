@@ -1,6 +1,6 @@
 # Lecture 10.1
 
-- Assignment 2 explanation...
+**Beginning of lecture: **explained Assignment 2.
 
 ## Files (Chapter 11 from Alistair's Book)
 

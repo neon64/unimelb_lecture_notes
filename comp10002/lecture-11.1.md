@@ -1,24 +1,27 @@
-# Lecture 11.1
+# Lecture 11.1 - floating point representation
 
-- more on encodings
+## Motivating example
 
-32 bits to encode numbers
+`logsum.c`
+$$
+\sum_{i=0}^n \frac{1}{i}
+$$
 
-`00000000 00000000 00000000 00000001 = 1`
+- after n=4 you already get differences from different formulas
 
-`00000000 00000000 00000000 00000110 = 6`
+1. subtracting numbers which may be close together - relative errors are magnified, absolute errors are additive
 
-`00000000 00000000 00000000 00000110 = 6`
+2. adding large sets of small numbers to large numbers on by one
 
-`11111111111111111111111111111010 = -6`
+   1. to rectify: first build up a mass of small numbers, than add those to the big number
 
-`&`, `|` , `^`, `~`
+3. comparing values which are the result of floating point arithmetic
 
-Note: `020` is octal,
+In practice: need to use an "almost equals" comparison
 
-`0x20` is hexadecimal!!!
 
-## Floating-point representatins
+
+## Floating-point representations
 
 - one bit sign
 
@@ -40,7 +43,7 @@ sign
 
 $x = SM \cdot B^E$
 
-"Normalised encodings" => proper scientiffic
+"Normalised encodings" => proper scientific notation
 
 mantissa - the 1 on the LHS of equals sign never gets encoded....
 
@@ -49,3 +52,29 @@ To encode 2^0 - 127
 2^-1 - 126
 
 2 ^-2 - 125 etc...
+
+
+## More on precision of floating-point
+
+1 / 10 = `.000110011001100110011001100...` in binary - therefore you won't get an exact representation!!
+
+```c
+floatbits 0.1
+        00111101 11001100 11001100 11001101
+         ------- -
+       the exponent
+                  ----------------------------
+                      the mantissa
+```
+
+can only encode a **finite** number of floating point bits
+
+23 bits of mantissa
+
+8 bits of exponent
+
+1 bit of the sign
+
+
+
+##
