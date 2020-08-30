@@ -6,6 +6,8 @@ Assorted lecture notes from Foundations of Algorithms, Semester 2, 2019, with Pr
 
 These lecture notes are compiled roughly based upon which in-person lecture they appeared in, however I have taken the liberty to move some things around and combine multiple lectures into one file, hence there is no longer exactly 3 lectures per week for 12 weeks.
 
+Please note: many of the notes for these topics are extremely scarce. This is because I didn't take copious notes on topics which I already felt I was familiar with (e.g.: malloc, structs, arrays, functions, lots of simple C concepts). In the future I may expand these notes into a comprehensive guide for the subject. 
+
 - [Lecture 1.1](./lecture-1.1.md) - introduction
 - [Lecture 1.3](./lecture-1.3.md) - getting started with C
 - [Lecture 2.1](./lecture-2.1.md) - types, `if`, `else`, `switch`
