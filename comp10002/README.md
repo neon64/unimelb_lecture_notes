@@ -25,7 +25,7 @@ These lecture notes are compiled roughly based upon which in-person lecture they
 - [Lecture 7.2](./lecture-7.2.md) - more on Boyer-Moore Horspool, suffix arrays, finding repeated substrings
 - [Lecture 7.3](./lecture-7.3.md) - indexing, more on suffix arrays
 - [Lecture 8.1](./lecture-8.1.md) - arrays vs structs, `->` operator
-- [Lecture 9.1](./lecture-9.1.md) - linked lists
+- [Lecture 9.1](./lecture-9.1.md) - malloc, linked lists
 - [Lecture 9.2](./lecture-9.2.md) - function pointers, functions args, const parameters
 - [Lecture 9.3](./lecture-9.3.md) - binary search trees
 - [Lecture 10.1](./lecture-10.1.md) - files (Chapter 11 of Alistair's book)
@@ -43,3 +43,10 @@ See these two repositories for my take on the two assignments for this semester:
 
 - [My solution to assignment 1](https://github.com/neon64/comp10002_assignment1)
 - [My solution to assignment 2](https://github.com/neon64/comp10002_assignment2)
+
+## Other resources
+
+Other past students have compiled notes too - can't vouch for their accuracy:
+
+- https://github.com/naufik/algorithms-are-fun
+- https://github.com/zirenxiao/UniMelb-Lib
