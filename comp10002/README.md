@@ -1,4 +1,4 @@
-# COMP10002 - Foundations of Algorithms (Semester 2, 2020)
+# COMP10002 - Foundations of Algorithms (Semester 2, 2019)
 
 Assorted lecture notes from Foundations of Algorithms, Semester 2, 2019, with Professor Alistair Moffat and Dr Artem Polyvyanyy as lecturer.
 
