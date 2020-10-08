@@ -1,0 +1,185 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ margin=0.5in}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\newcommand{\High}{\mathrm{High}}
+\newcommand{\Low}{\mathrm{Low}}
+\newcommand{\NKeys}{\mathrm{NKeys}}
+\newcommand{\NPages}{\mathrm{NPages}}
+\newcommand{\NTuples}{\mathrm{NTuples}}
+\newcommand{\ProbeCost}{\mathrm{ProbeCost}}
+\newcommand{\Cost}{\mathrm{Cost}}
+\usepackage{minted}
+\usemintedstyle{vs}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.4em}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newtcolorbox{mybox}{colback=red!5!white,colframe=red!75!black}
+\newtcolorbox{bluebox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{greenbox}{colback=green!5!white,colframe=green!75!black}
+
+
+\begin{document}
+
+\title{Database Systems Query Costing}
+\author{by Chris Chamberlain, current student - no guarantee of correctness}
+
+\maketitle
+
+\section{With an index}
+
+\begin{greenbox}
+
+\subsubsection*{Clustered index, matching one or more predicates.}
+
+\begin{align*}
+    \text{Cost(B+ tree index)} &= (\NPages(I) + \NPages(R)) \cdot \Pi_{i=1..n} RF_i \\
+    \text{Cost(Hash index)} &= \NPages(R) \cdot \Pi_{i=1..n} RF_i \cdot 2.2
+\end{align*}
+
+\subsubsection*{Non-clustered index, matching one or more predicates.}
+
+\begin{align*}
+\text{Cost(B+ tree index)} &= (\NPages(I) + \NTuples(R)) \cdot \Pi_{i=1..n} RF_i \\
+\text{Cost(Hash  index)} &= \NTuples(R) \cdot \Pi_{i=1..n} RF_i \cdot 2.2
+\end{align*}
+
+\subsubsection*{Only selecting a single tuple (index selection by primary key)}
+
+\begin{align*}
+\text{Cost(B+ tree)} &= \textrm{Height}(I) + 1 \\
+\;\\
+\text{Cost(Hash Probe)} &= \ProbeCost(I) + 1 \\
+    &\approx 2.2 \\
+\end{align*}
+
+\end{greenbox}
+
+{\small\textbf{Note:} the $+1$ in these two formulas is for accessing the actual data page.}
+
+\section{Without using an index}
+
+\begin{mybox}
+\subsubsection*{Sequential heap scan (no index, unsorted):}
+$$
+\text{Cost} = \NPages(R)
+$$
+
+\textbf{Note:} heap scan is always an option and sometimes will be faster than using an index. Don't assume an index will be faster just because it exists.
+\end{mybox}
+
+\subsubsection*{Binary search (no index, sorted by relevant column):}
+$$
+\text{Cost} = \underbrace{\log_2(\NPages(R))}_{\text{\tiny Binary search cost to find first page}} + \overbrace{RF\cdot \NPages(R)}^{\text{\tiny Read all pages matching predicate}}
+$$
+
+\newpage
+\section{Multi-relation plans / joins}
+
+\begin{enumerate}
+    \item Select order of relations (prefer ``left-deep-joins", allows for ``on-the-fly" reading and pipelining). Get rid of plans with cross-products
+    \item For each join, select join algorithm (hash join, sort merge)
+    \item For each input relation, select access method
+\end{enumerate}
+
+\subsection{Join algorithms}
+
+$R$ is the outer relation, $S$ is the inner relation.
+
+\begin{bluebox}
+\begin{align*}
+    \text{Cost(Tuple-oriented NLJ)} &= \NPages(R) + \NTuples(R) \cdot \NPages(S) \\
+    \text{Cost(Page-oriented NLJ)} &= \NPages(R) + \NPages(R) \cdot \NPages(S) \\
+    \text{Cost(Block-oriented NLJ)} &= \NPages(R) + \ceil*{\frac{\NPages(R)}{B - 2}} \cdot \NPages(S) \\
+        &\text{where $B$ is the number of available memory pages} \\
+        \; \\
+    \text{Cost(Hash Join)} &= \underbrace{2 \cdot (\NPages(R) + \NPages(S))}_{\tiny \text{Partioning phase (read-write)}} + \underbrace{(\NPages(R) + \NPages(S))}_{\tiny \text{Matching phase (read)} }  \\
+      &= 3 \cdot (\NPages(R) + \NPages(S))  \\
+        \; \\
+    \text{Cost(Sort-Merge Join)} &= \underbrace{2\cdot \NPages(R) \cdot \mathrm{NumPasses(R)}}_{\text{Sort outer}}\\
+        &+ \underbrace{2 \cdot \NPages(S) \cdot \mathrm{NumPasses(S)}}_{\text{Sort inner}} \\
+        &+ \underbrace{\NPages(R) + \NPages(S)}_{\text{Merge inputs}}
+\end{align*}
+\end{bluebox}
+
+\subsection{Pipelining}
+
+Todo.
+
+\section{Cost of projections}
+
+When performing a projection, you need to remove duplicates (\mintinline{SQL}{SELECT DISTINCT} in MySQL). There are two main methods:
+
+\textbf{Sort-based projection: } (1) read table, keeping only projected attrs, (2) write pages with projected attrs to disk, (3) sort pages with external sort, (4) read sorted projected pages to discard adjacent duplicates.
+
+\begin{greenbox}
+\begin{align*}
+\text{Cost(Sort-based projection)} = &\underbrace{\NPages(R)}_{\tiny \text{ReadTable}} + \underbrace{\NPages(R)\cdot PF}_{\tiny \text{WriteProjectedPages}} +\\
+& \underbrace{2\cdot \text{NumPasses} \cdot \NPages(R) \cdot PF}_{ \text{SortProjectedPages}} + \underbrace{ \NPages(R) \cdot PF }_{ \text{ReadProjectedPages}} \\
+\end{align*}
+\end{greenbox}
+
+\textbf{Hash-based projection: } (1) read table, keeping only projected attrs, (2) write pages with projected attrs into corresponding buckets, (3) read buckets one-by-one, create another hash-table and discard duplicates within a bucket.
+
+\begin{greenbox}
+\begin{align*}
+\text{Cost(Hash-based projection)} = &\underbrace{\NPages(R)}_{\tiny \text{ReadTable}} + \underbrace{\NPages(R)\cdot PF}_{\text{WriteProjectedPages}} + \underbrace{ \NPages(R) \cdot PF }_{ \text{ReadProjectedPages}}
+\end{align*}
+\end{greenbox}
+
+\newpage
+
+\section{Appendix}
+
+These formulas should be all mostly all intuitive, but they also underpin most of the formulas on the previous two pages.
+
+\subsection{Reduction factors}
+
+\begin{enumerate}
+
+\item $col = value$
+
+$$
+RF = \frac{1}{\NKeys(col)}
+$$
+
+\item $col > value$
+
+$$
+RF = \frac{\High(col) - value}{\High(col) - \Low(col)}
+$$
+
+\item $col < value$
+
+$$
+RF = (val - \Low(col)) / (\High(col) - \Low(col))
+$$
+
+\item $col\_a = col\_b$ (join on a single column)
+
+$$
+RF = \frac{1}{\max(\NKeys(col\_a), \NKeys(col\_b))}
+$$
+
+\item No information, use a magic number $RF = \frac{1}{10}$
+
+\end{enumerate}
+
+\subsection{Result size after selection}
+
+\textbf{Single table: } $\text{ResultSize} = \NTuples(R) \cdot \Pi_{i=1..n} \, RF_i$
+
+\textbf{Joins:} $\text{ResultSize} = \Pi_{j=1..k} \NTuples(R_j) \cdot \Pi_{i=1..n} \, RF_i$
+
+If there are no predicates, reduction factors are ignored (i.e.: they are all 1)
+
+
+\end{document}
