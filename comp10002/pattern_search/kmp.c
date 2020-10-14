@@ -54,6 +54,7 @@ void compute_f_original(char *str, int n, int *F) {
 	}
 }
 
+// my implementation
 void generate_failure_function(char *pattern, int m, int **f, bool *strange) {
     assert(m >= 1);
     *f = (int *) malloc(sizeof(int) * m);

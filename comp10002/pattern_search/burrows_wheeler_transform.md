@@ -1,8 +1,14 @@
 # Burrows-Wheeler transform
 
+![image1](screenshot_2019-09-18_11-17-27_753886358.png)
+
 Let $L[i]$ be the character that immediately precedes the suffix $T[i...]$. If the suffix is the whole string, then, we wrap around and use the final character `!` instead.
 
 Sort the Burrows-Wheeler transform...
+
+[Burrows-Wheeler transform](https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform)
+
+![image2](screenshot_2019-09-18_18-22-56_199063098.png)
 
 ![image](./screenshot_2019-11-10_17-04-43_004207443.png)
 

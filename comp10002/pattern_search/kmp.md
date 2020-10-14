@@ -15,6 +15,12 @@ An algorithm named after Knuth, Morris, Pratt, invented it in 1974.
 - Construct a failure vector $F$, by defining $F[i]$ to be the maximum $k < i$ such that $P[0 . . . k − 1]$
 matches $P[i − k . . . i − 1]$, with $F[0]$ set (forced) to be $−1$.
 
+- A more intuitive explanation involves the terms "proper prefix" and "proper suffix"
+  - example: proper prefixes of `Snape` are `S`, `Sn`, `Sna`, `Snap` (note: `Snape` note included)
+  - example: proper suffixes of `Hagrid` are `agrid`, `grid`, `rid`, `id`, `d`
+
+  - We define each value of the lookup table to be equal to *"the length of the longest proper prefix that matches a proper suffix in the same subpattern"*.
+
 ```
 P:  s h e # s h e l l s
 I:  0 1 2 3 4 5 6 7 8 9
@@ -25,25 +31,33 @@ F: -1 0 0 0 0 1 2 3 0 0
   - if $F[i]$ is zero (quite common), then we resume from location $s + i$, rather than $s + 1$ (with naive pattern search).
   - the example above, "she shells" is an outlier since there is so much repetiton
 
-## How to construct the failure function $F$?
+## Code examples
 
-start with $s=2, c=0$.
+```c
+void construct_failure_array(char *str, int n, int *F) {
+    // start with s=2, c=0
+    int pos = 2, cnd = 0;
+    F[0] = -1;
+    F[1] = 0;
+    while (pos < n) {
+        // if `str[s-1] == str[c] `, then we increment `c`, set `F[s] = c`, and then increment `s`.
+        if (str[pos-1] == str[cnd]) {
+            cnd += 1;
+            F[pos] = cnd;
+            pos += 1;
+        // otherwise, if `c > 0`, then we take `c = F[c]` (decrementing it).
+        } else if (cnd > 0) {
+            cnd = F[cnd];
+        // finally, if they aren't equal and `c == 0`, we set `F[s] = 0` and increment `s`.
+        } else {
+            F[pos] = 0;
+            pos += 1;
+        }
+    }
+}
+```
 
-If `str[s-1] == str[c] `, then we increment `c`, set `F[s] = c`, and then increment `s`.
-
-Otherwise, if `c > 0`, then we take `c = F[c]` (decrementing it).
-
-Finally, if they aren't equal and `c == 0`, we set `F[s] = 0` and increment `s`.
-
-#### Alternative, equivalent version:
-
-- We use the terms "proper prefix" and "proper suffix"
-  - *Snape* proper prefixes: S, Sn, Sna, Snap (note: Snape note included)
-  - *Hagrid* proper suffixes: agrid, grid, rid, i, d
-
-Then, we define each value of the lookup table to be equal to *"the length of the longest proper prefix that matches a proper suffix in the same subpattern"*.
-
-## How to perform the search itself?
+Performing the search itself:
 
 ```matlab
 s <- 0
@@ -56,7 +70,7 @@ while s <= n - m
     else
         s <- s + i - F[i]
         i <- max(F[i], 0)
-    return not_found
+    return NOT_FOUND
 ```
 
 ### Analysis
