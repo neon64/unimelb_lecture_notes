@@ -4,9 +4,16 @@ Assorted lecture notes from Foundations of Algorithms, Semester 2, 2019, with Pr
 
 ## Table of Contents
 
+#### Notes grouped by topic:
+
+- [Pattern Search (BMH, KMP, suffix arrays)](./pattern_search/README.md)
+- [Exam tips from final lecture](./exam-tips.md)
+
+#### Disorganised, lecture-by-lecture notes:
+
 These lecture notes are compiled roughly based upon which in-person lecture they appeared in, however I have taken the liberty to move some things around and combine multiple lectures into one file, hence there is no longer exactly 3 lectures per week for 12 weeks.
 
-Please note: many of the notes for these topics are extremely scarce. This is because I didn't take copious notes on topics which I already felt I was familiar with (e.g.: malloc, structs, arrays, functions, lots of simple C concepts). In the future I may expand these notes into a comprehensive guide for the subject. 
+Please note: many of the notes for these topics are extremely scarce. This is because I didn't take copious notes on topics which I already felt I was familiar with (e.g.: malloc, structs, arrays, functions, lots of simple C concepts). In the future I may expand these notes into a comprehensive guide for the subject.
 
 - [Lecture 1.1](./lecture-1.1.md) - introduction
 - [Lecture 1.3](./lecture-1.3.md) - getting started with C
@@ -22,10 +29,6 @@ Please note: many of the notes for these topics are extremely scarce. This is be
 - [Lecture 5.1](./lecture-5.1.md) - quicksort, comparison to insertion sort
 - [Lecture 5.2](./lecture-5.2.md) - typedefs, binary search
 - [Lecture 5.3](./lecture-5.3.md) - strings and string algorithms
-- [Lecture 6.2](./lecture-6.2.md) - idea of pattern search
-- [Lecture 6.3](./lecture-6.3.md) - linear pattern search, Knuth Morris Pratt (KMP) search, Boyer-Moore-Horspool pattern search
-- [Lecture 7.2](./lecture-7.2.md) - more on Boyer-Moore Horspool, suffix arrays, finding repeated substrings
-- [Lecture 7.3](./lecture-7.3.md) - indexing, more on suffix arrays
 - [Lecture 8.1](./lecture-8.1.md) - arrays vs structs, `->` operator
 - [Lecture 9.1](./lecture-9.1.md) - malloc, linked lists
 - [Lecture 9.2](./lecture-9.2.md) - function pointers, functions args, const parameters
@@ -37,7 +40,6 @@ Please note: many of the notes for these topics are extremely scarce. This is be
 - [Lecture 11.2](./lecture-11.2.md) - problem solving techniques: generate and test, divide-and-conquer
 - [Lecture 12.1](./lecture-12.1.md) - hashing and hash tables
 - [Lecture 12.2](./lecture-12.2.md) - mergesort and heapsort
-- [Exam tips](./exam-tips.md) - exam tips from lecture
 
 ## Assignments
 
