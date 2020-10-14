@@ -1,4 +1,4 @@
-# Lecture 6.3 : KMP pattern search
+# Knuth-Morris-Pratt (KMP) pattern search
 
 [[back to pattern search]](./README.md)
 

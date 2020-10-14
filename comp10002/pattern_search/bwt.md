@@ -1,24 +1,29 @@
 # Burrows-Wheeler transform
 
+[[back to pattern search]](./README.md)
+
+- [Burrows-Wheeler transform (on Wikipedia)](https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform)
+
+Let $L[i]$ be the character that immediately precedes the suffix $T[i...]$. If the suffix is the whole string, then, we wrap around and use the final character `!` instead. See the image below:
+
 ![image1](screenshot_2019-09-18_11-17-27_753886358.png)
 
-Let $L[i]$ be the character that immediately precedes the suffix $T[i...]$. If the suffix is the whole string, then, we wrap around and use the final character `!` instead.
-
-Sort the Burrows-Wheeler transform...
-
-[Burrows-Wheeler transform](https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform)
-
-![image2](screenshot_2019-09-18_18-22-56_199063098.png)
+If we sort all of these $L[i]$s then we get a text that is more easily compressible (has more repeated letters)
 
 ![image](./screenshot_2019-11-10_17-04-43_004207443.png)
 
-## Can reconstruct the original text! From this thing.
+Example on a larger text:
+
+![image2](screenshot_2019-09-18_18-22-56_199063098.png)
+
+The amazing thing, is that you can reconstruct the original text From this thing!
 
 - goes through a deterministic procedure, where many similar symbols get grouped together.
   - happens because burrows wheeler transform comes from the *suffix array*
 - this can then be compressed / decompressed by avoiding repeated chars
 - then apply inverse burrows wheeler transform back to get the original text
 
+Example on `sells_sea_shells`
 
 
 ```
@@ -67,6 +72,8 @@ s e s h s s e e l l l _ $ _ l s a
 1 1 1 2 3 1 1 2 3 4 1 2 3 4 5 1 2
 $ a e e e h l l l l s s s s s _ _
 
+
+# todo: explain how the reversing process works:
 
 sells_sea_shells$
 

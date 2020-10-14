@@ -1,4 +1,4 @@
-# Lecture 7.2: Boyer-Moore-Horspool pattern search
+# Boyer-Moore-Horspool (BMH) pattern search
 
 [[back to pattern search]](./README.md)
 

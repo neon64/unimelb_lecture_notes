@@ -1,5 +1,7 @@
 # Introduction to Pattern Search
 
+[[back to COMP10002 home]](../README.md)
+
 **Given:** a text sequence $T[0..n-1]$
 
 **Question:** how do you find whether a particular pattern occurs in that string?
@@ -12,4 +14,6 @@
 - [Knuth-Morris-Pratt pattern search](./kmp.md)
 - [Boyer-Moore Horspool pattern search](./bmh.md)
 - [Suffix arrays](./suffix-arrays.md)
+- [Burrows-Wheeler transform](./bwt.md)
+
 
