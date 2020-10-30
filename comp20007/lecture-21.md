@@ -4,7 +4,7 @@
 
 - decision problems
   - is there a hamiltonian path?
-  - is the integer $n$ a prime number?
+  - is the integer <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> a prime number?
 
 
 
@@ -13,7 +13,7 @@
 
 
 - verification problems takes an input, a <u>proposed solution</u> and verifies if the solution satisfies the inpt
-  - given $n$ and ${i_1, i_2, \dots, i_k}$ check if $\Pi  i  = n$
+  - given <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> and <img src="svgs/1faba647ad0d139077f8b29823fb3aff.svg?invert_in_darkmode" align=middle width=82.83992804999998pt height=21.68300969999999pt/> check if <img src="svgs/c7990fdbb3b348b457a1782da0e0d5fb.svg?invert_in_darkmode" align=middle width=49.77653174999998pt height=22.465723500000017pt/>
   - verify that there is a circuit that follows the given sequence of nodes
 
 
@@ -46,15 +46,13 @@ We can turn a verification problem into a decision problem:
 
 
 
-$$
-P \sub NP
-$$
+<p align="center"><img src="svgs/f45d1fadea441732be2208d1aae2969c.svg?invert_in_darkmode" align=middle width=40.6735164pt height=11.232861749999998pt/></p>
 
 - one can verify a solution by solving the decision version and comparing the result to make sure they're equal.
 
 
 
-- the reverse is unknown $P\; ? \; NP$ 
+- the reverse is unknown <img src="svgs/e7576f99d0541fea7c778615acb5b1af.svg?invert_in_darkmode" align=middle width=57.56830364999999pt height=22.831056599999986pt/> 
 
 
 
@@ -83,8 +81,8 @@ daunting task to try and prove bounds for every new problem
 
 ## NP-completeness
 
-- $D \in NP$ and
-  - every problem has a polynomial reduction to $D$ or
+- <img src="svgs/9414c5274567a73a161305f80e4a4b82.svg?invert_in_darkmode" align=middle width=61.99411349999998pt height=22.465723500000017pt/> and
+  - every problem has a polynomial reduction to <img src="svgs/78ec2b7008296ce0561cf83393cb746d.svg?invert_in_darkmode" align=middle width=14.06623184999999pt height=22.465723500000017pt/> or
   - a polynomial reduction from a known NP-complete problem to D exists
 
 Key property: if one finds a polynomial time algorithm to solve an NP-complete problem, then P=NP as every problem in NP can be reduced to this polynomial time algorithm.
@@ -133,7 +131,7 @@ see COMP30026
 - canonical example - the halting problem
 
 - some scientists tried to prove that P?NP is undecidable
-- most scientists believe that $P \neq NP$
+- most scientists believe that <img src="svgs/4227598663238df6d25418ac887d010c.svg?invert_in_darkmode" align=middle width=62.59114619999999pt height=22.831056599999986pt/>
 
 
 

@@ -3,9 +3,7 @@
 ## Motivating example
 
 `logsum.c`
-$$
-\sum_{i=0}^n \frac{1}{i}
-$$
+<p align="center"><img src="svgs/76972fdd5af55efb02c146cfe3ef3d0a.svg?invert_in_darkmode" align=middle width=36.67580565pt height=44.89738935pt/></p>
 
 - after n=4 you already get differences from different formulas
 
@@ -25,9 +23,9 @@ In practice: need to use an "almost equals" comparison
 
 - one bit sign
 
-- a $w_e$ bit integer exponent of 2 or 16
+- a <img src="svgs/5f96d7b4ddd63a9a6ee834051177580b.svg?invert_in_darkmode" align=middle width=18.00542699999999pt height=14.15524440000002pt/> bit integer exponent of 2 or 16
 
-- a $w_m$ bit mantissa, normalised so that the leading binary or hexadecimal bit is 0
+- a <img src="svgs/632bb59e30c41191cd91e8dda5c8add4.svg?invert_in_darkmode" align=middle width=23.433357749999992pt height=14.15524440000002pt/> bit mantissa, normalised so that the leading binary or hexadecimal bit is 0
 
 `floatbits.c`
 
@@ -41,7 +39,7 @@ if first bit is `0`, then +ve number, otherwise if first bit is `1`, then a -ve 
 sign
 ```
 
-$x = SM \cdot B^E$
+<img src="svgs/639b83b6d973bf25cdf54e6f3aa2cd41.svg?invert_in_darkmode" align=middle width=95.52825314999998pt height=27.6567522pt/>
 
 "Normalised encodings" => proper scientific notation
 

@@ -45,36 +45,23 @@ function Merge(B[0..p-1, C[0..q-1], A[0..p+q-1]):
 
 ### Complexity analysis
 
-$$
-C(n) = 2 \cdot C(n/2) + C_{merge}(n)
-$$
+<p align="center"><img src="svgs/0b495a3c53407999eb6d7d5a6c227b24.svg?invert_in_darkmode" align=middle width=222.33739604999997pt height=17.031940199999998pt/></p>
 
-Worst case scenario for $C_{merge}$ - have to go all the way to the end
-$$
-C_{merge}^{worst} = n-1
-$$
+Worst case scenario for <img src="svgs/f95462510c49499c12c1dbfcf88d3ea1.svg?invert_in_darkmode" align=middle width=49.17092894999999pt height=22.465723500000017pt/> - have to go all the way to the end
+<p align="center"><img src="svgs/278ace08a8ebc08177d5f9af6ee501c4.svg?invert_in_darkmode" align=middle width=110.08766669999999pt height=20.16618285pt/></p>
 
-$$
-C(n) = 2C(n/2) + n-1
-$$
+<p align="center"><img src="svgs/a47e644425cf92839569f26f7083db21.svg?invert_in_darkmode" align=middle width=175.99762125pt height=16.438356pt/></p>
 
 Apply the master theorem:
-$$
-T(n) = aT(n/b) + F(n^d)
-$$
+<p align="center"><img src="svgs/334deb697d9cd7c86b6dae314294ef26.svg?invert_in_darkmode" align=middle width=178.22645114999997pt height=18.88772655pt/></p>
 
-$$
-a = 2, b = 2, d = 1 \\
-a = b^d \implies 2 = 2^1 \\
-\implies \Theta(n^d \log(n)) \\
-\implies \Theta(n \log(n))
-$$
+<p align="center"><img src="svgs/5d2f346fa6d2a00bb6ac318a9dbe69c9.svg?invert_in_darkmode" align=middle width=526.41524265pt height=18.88772655pt/></p>
 
-Best case - $C_{merge}^{best} = \frac{n}{2}-1$
+Best case - <img src="svgs/cb2edb9db5d199474faee4468a61bc3b.svg?invert_in_darkmode" align=middle width=112.29200564999998pt height=27.91243950000002pt/>
 
-- since need to go through and check $\frac{n}{2}$ elements before copying the other half over
+- since need to go through and check <img src="svgs/f11950293b5756c0367d21fb42f57c99.svg?invert_in_darkmode" align=middle width=8.126022299999999pt height=22.853275500000024pt/> elements before copying the other half over
 
-Complexity of mergesort = $\Theta(n \log n)$
+Complexity of mergesort = <img src="svgs/5bdc90ce16382c0f8496279da7f0d740.svg?invert_in_darkmode" align=middle width=72.01684874999998pt height=24.65753399999998pt/>
 
 Highly parallelism
 
@@ -138,7 +125,7 @@ function HoarePartition(A[l..r])
 Why use Hoare partitioning in practice?
 
 - uses 3 times fewer swaps on average, and creates efficient partitions when all values are equal
-- but can still exhibit $O(n^2)$ behaviour
+- but can still exhibit <img src="svgs/3987120c67ed5a9162aa9841b531c3a9.svg?invert_in_darkmode" align=middle width=43.02219404999999pt height=26.76175259999998pt/> behaviour
 - 
 
 ### Complexity
@@ -152,19 +139,17 @@ measuring - comparisons
 
 **best-case scenario:**
 
-- number of comparisons to partition a list of $n$.
-- at least $n-1$ to get to middle, plus $1+1$ for each of them
-  - $n+1 \in \Theta(n)$
+- number of comparisons to partition a list of <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>.
+- at least <img src="svgs/efcf8d472ecdd2ea56d727b5746100e3.svg?invert_in_darkmode" align=middle width=38.17727759999999pt height=21.18721440000001pt/> to get to middle, plus <img src="svgs/96d974a75b6ae04b43f662af8779ed12.svg?invert_in_darkmode" align=middle width=36.52961069999999pt height=21.18721440000001pt/> for each of them
+  - <img src="svgs/41fc4e4011d65a7426ca85be7eafeeab.svg?invert_in_darkmode" align=middle width=93.70615815pt height=24.65753399999998pt/>
 
-$$
-C_{best} = 2C_{best}(n/2) + \Theta(n) \implies\Theta(n\log(n))
-$$
+<p align="center"><img src="svgs/e3950f26d87093105865890667218950.svg?invert_in_darkmode" align=middle width=323.08493085pt height=16.438356pt/></p>
 
 - assumes the pivot split the array in half each time
 
 **worst-case scenario:**
 
-- pivot is the smallest element, one partition of size 0, one of size $n-1$.
+- pivot is the smallest element, one partition of size 0, one of size <img src="svgs/efcf8d472ecdd2ea56d727b5746100e3.svg?invert_in_darkmode" align=middle width=38.17727759999999pt height=21.18721440000001pt/>.
 
 - new pivot is once again smallest element
 
@@ -172,32 +157,20 @@ $$
 
 - becomes *decrease* and conquer, not *divide* and conquer
 
-$$
-C_{worst} = (n+1) + n (n-1) + \dots .. 3 \\
-       = \frac{(n+1)(n+2)}{2} - 2 - 1 \\
-       = \frac{(n+1)(n+2)}{2} - 3 \\
-       \in \Theta(n^2)
-$$
+<p align="center"><img src="svgs/5e04eabd73e69feb22820fbdd4913000.svg?invert_in_darkmode" align=middle width=663.0787581pt height=34.7253258pt/></p>
 
 **average-case**
-$$
-s \gets \text{size of first partition} \\
-\text{Let } n+1 \text{ be the cost of the partition}
-$$
+<p align="center"><img src="svgs/977bc6a7fa574639ca6c0a35e7f086a3.svg?invert_in_darkmode" align=middle width=447.89253134999996pt height=14.611878599999999pt/></p>
 
-$$
-C_{avg} = (n+1) + C_{avg}(s) + C_{avg}(n - 1 - s)
-$$
+<p align="center"><img src="svgs/1bbe0727dc80972992f2254378bf8adf.svg?invert_in_darkmode" align=middle width=312.8590641pt height=17.031940199999998pt/></p>
 
-if $s = \frac{n}{2}$ then you get best case, if $s=0$ then worst case
+if <img src="svgs/4236303dd0d91e3258b505402feb4280.svg?invert_in_darkmode" align=middle width=39.72173039999999pt height=22.853275500000024pt/> then you get best case, if <img src="svgs/ba312eaad422e9c3fdab5a5f592f1ebb.svg?invert_in_darkmode" align=middle width=37.84231934999999pt height=21.18721440000001pt/> then worst case
 
-$$
-\frac{1}{n} \left(\sum_{s=0}^{n-1} n+1 + C_{avg}(s) + C_{avg}(n-1-s) \right)
-$$
+<p align="center"><img src="svgs/3fc527ec1b9f33aa480961b4312aa531.svg?invert_in_darkmode" align=middle width=312.93948674999996pt height=49.315569599999996pt/></p>
 
-- "assuming that it is uniform" , can divide by $n$
+- "assuming that it is uniform" , can divide by <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>
   - is this legit maths?
-- $\in \Theta(n \log n)$
+- <img src="svgs/2333193b1aa7871f90b7863c3e08b1c9.svg?invert_in_darkmode" align=middle width=87.54188684999998pt height=24.65753399999998pt/>
 
 
 

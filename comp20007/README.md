@@ -11,7 +11,7 @@ Lecture-by-lecture notes, largely unedited.
 - [Lecture 5](./lecture-5.md) - Matrix Multiplication, Recursive Algorithms - Binary Search
 - [Lecture 6](./lecture-6.md)
   - Brute-Force Algorithms (String Matching, Closest Pair, Travelling Salesperson, Knapsack Problem)
-  - Graph Representations, graph $k$ colouring
+  - Graph Representations, graph <img src="svgs/63bb9849783d01d91403bc9a5fea12a2.svg?invert_in_darkmode" align=middle width=9.075367949999992pt height=22.831056599999986pt/> colouring
 - [Lecture 7](./lecture-7.md) - Graph Traversal - DFS, BST, Topological Sorting
 - [Lecture 8](./lecture-8.md) - Prim's / Dijkstra's
 - [Lecture 9](./lecture-9.md) - Divide and Conquer Algorithms

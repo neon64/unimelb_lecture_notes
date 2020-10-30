@@ -29,9 +29,9 @@ With a 32-bit integer, largest number is ~4 billion
 
 #### twos-complement encoding
 
-- the rightmost bit encodes $-2^{w-1}$
+- the rightmost bit encodes <img src="svgs/648a3e38132a0462560d4e398df994c4.svg?invert_in_darkmode" align=middle width=47.65051004999999pt height=26.76175259999998pt/>
 
-- so e.g.: $1 \times -2^{3} + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 $
+- so e.g.: <img src="svgs/df06bd9c46e401b679519d3ac32fc375.svg?invert_in_darkmode" align=middle width=247.85337389999995pt height=26.76175259999998pt/>
 
 - then you can just do straightforward binary addition! nice...
 

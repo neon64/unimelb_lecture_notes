@@ -16,7 +16,7 @@ Structure of a divide-and-conquer algorithm:
 
 Height - does *not* include the root. length of the *longest* simple path from root
 
-*Depth* of a vertex $V$ - length of a path from root to vertex $V$
+*Depth* of a vertex <img src="svgs/a9a3a4a202d80326bda413b5562d5cd1.svg?invert_in_darkmode" align=middle width=13.242037049999992pt height=22.465723500000017pt/> - length of a path from root to vertex <img src="svgs/a9a3a4a202d80326bda413b5562d5cd1.svg?invert_in_darkmode" align=middle width=13.242037049999992pt height=22.465723500000017pt/>
 
 Empty tree has a height `-1`
 
@@ -48,7 +48,7 @@ function Height(T):
 
 How often do we check that T is empty?
 
-Claim: the number $x$ of external nodes is always one greater than the number $n$ of internal nodes.
+Claim: the number <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/> of external nodes is always one greater than the number <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> of internal nodes.
 
 **Proof:**
 
@@ -56,17 +56,9 @@ Observe that every node, except for the root, is one of two children of an inter
 
 Total number of nodes is the number of internal nodes  + number of external nodes.
 
-$$
-\text{Let }x \text{ be the number of external nodes} \\
-\text{Let }n \text{ be the number of internal nodes} \\
-\;\\
-2n + 1 = x + n \\
-2n + 1 + 1 - n = x + n + 1 - n \\
-n + 2 = x + 1 \\
-x = n + 1
-$$
+<p align="center"><img src="svgs/eed2aece09fd5e017d2b2473a7e7b0b1.svg?invert_in_darkmode" align=middle width=972.2161547999999pt height=12.785402849999999pt/></p>
 
-the extra $1$ is the root node
+the extra <img src="svgs/034d0a6be0424bffe9a6e7ac9236c0f5.svg?invert_in_darkmode" align=middle width=8.219209349999991pt height=21.18721440000001pt/> is the root node
 
 ### Binary Tree Traversal
 
@@ -134,27 +126,25 @@ while the queue is not empty do
 
 ## Closest-Pair Problem - Revisited
 
-Bruteforce solution is $\Theta(n^2)$, comparing the distances between each pair of points.
+Bruteforce solution is <img src="svgs/7f673488709d91c2cf326d97e5a437c3.svg?invert_in_darkmode" align=middle width=42.81220349999999pt height=26.76175259999998pt/>, comparing the distances between each pair of points.
 
-But we can do better - namely $\Theta (n\log n)$ with a divide and conquer approach.
+But we can do better - namely <img src="svgs/ad0a754aa242d1703a16f4e21e10e57c.svg?invert_in_darkmode" align=middle width=72.01684874999998pt height=24.65753399999998pt/> with a divide and conquer approach.
 
-1. Sort points by $x$, store in an array `byX`.
+1. Sort points by <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/>, store in an array `byX`.
 
-2. Sort points by $y$, store in an array `byY`
+2. Sort points by <img src="svgs/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode" align=middle width=8.649225749999989pt height=14.15524440000002pt/>, store in an array `byY`
 
-3. Divide and conquer the cartesian plane, by identify the median $x$ value, and recursively process the set $P_L$ of points with lower $x$ values, as well as the set $P_R$ with higher $x$ values.
+3. Divide and conquer the cartesian plane, by identify the median <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/> value, and recursively process the set <img src="svgs/8afab50701598f23027b8c8a3eccf4ac.svg?invert_in_darkmode" align=middle width=19.571971649999988pt height=22.465723500000017pt/> of points with lower <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/> values, as well as the set <img src="svgs/c3e6cf52571e957457d2e5c45ddf3543.svg?invert_in_darkmode" align=middle width=20.515464749999992pt height=22.465723500000017pt/> with higher <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/> values.
    
    - gives two halves with equal number of points - optimisation of splitting range of $x$ values into two equal halves (which may not have a balanced number of elements)
 
-4. Compute minimum distance on each half. $d_L$ and $d_R$.
+4. Compute minimum distance on each half. <img src="svgs/647e3b3a7d45567de4a305636543cf5c.svg?invert_in_darkmode" align=middle width=17.57428694999999pt height=22.831056599999986pt/> and <img src="svgs/7aab4271f9fc347257575e6ca95c5287.svg?invert_in_darkmode" align=middle width=18.517780049999992pt height=22.831056599999986pt/>.
 
-$$
-d = \min(d_L, d_R)
-$$
+<p align="center"><img src="svgs/328caad9c2dbd26e102790cc2b969073.svg?invert_in_darkmode" align=middle width=115.6981287pt height=16.438356pt/></p>
 
-Now note that $d$ may not be the global minimum. There could be a really close pair with points on either side of the "border".
+Now note that <img src="svgs/2103f85b8b1477f430fc407cad462224.svg?invert_in_darkmode" align=middle width=8.55596444999999pt height=22.831056599999986pt/> may not be the global minimum. There could be a really close pair with points on either side of the "border".
 
-But wait. We can find some strip extended by $d$ in either direction.
+But wait. We can find some strip extended by <img src="svgs/2103f85b8b1477f430fc407cad462224.svg?invert_in_darkmode" align=middle width=8.55596444999999pt height=22.831056599999986pt/> in either direction.
 
 Then we only need to look for points in this band.
 
@@ -166,10 +156,10 @@ Pick out points from array `byY`,  filter by `x` coordinate, store in `S`.
 
 For each point in S, consider just its "close" neighbours.
 
-- Aren't we back to where we started? Isn't this $O(n^2)$ again?
-- No, can prove we can find the smallest distance in the 'strip' in $O(n)$ time, as for every point in the strip, need to only check a constant number of points.
+- Aren't we back to where we started? Isn't this <img src="svgs/3987120c67ed5a9162aa9841b531c3a9.svg?invert_in_darkmode" align=middle width=43.02219404999999pt height=26.76175259999998pt/> again?
+- No, can prove we can find the smallest distance in the 'strip' in <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/> time, as for every point in the strip, need to only check a constant number of points.
 
-**"Can be proven that this while loop will execute at most 5 times for each $i$ value."**
+**"Can be proven that this while loop will execute at most 5 times for each <img src="svgs/77a3b857d53fb44e33b53e4c8b68351a.svg?invert_in_darkmode" align=middle width=5.663225699999989pt height=21.68300969999999pt/> value."**
 
 - < 8 shown in lecture. 
 
@@ -193,10 +183,8 @@ for i <- 0 to k-2 do
 ```
 
 Solving recurrence relation
-$$
-T(n) = 2T(n/2) + O(n)
-$$
-gives $O(n \log n)$ time complexity.
+<p align="center"><img src="svgs/001fc19b678f0ca4e7892fcaee11d21a.svg?invert_in_darkmode" align=middle width=171.39742619999998pt height=16.438356pt/></p>
+gives <img src="svgs/ff514eba41c59f90c20d895e80719763.svg?invert_in_darkmode" align=middle width=72.2268393pt height=24.65753399999998pt/> time complexity.
 
-- note: the $O(n)$ here is looking for closest pairs in the middle band ^^
-- without this being $O(n)$, the overall complexity would be e.g.: $O(n^2)$
+- note: the <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/> here is looking for closest pairs in the middle band ^^
+- without this being <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/>, the overall complexity would be e.g.: <img src="svgs/3987120c67ed5a9162aa9841b531c3a9.svg?invert_in_darkmode" align=middle width=43.02219404999999pt height=26.76175259999998pt/>

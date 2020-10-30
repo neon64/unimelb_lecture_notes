@@ -9,9 +9,7 @@
 - simple ones like triangular numbers - should have in your head
 - harder ones you aren't expected to memorise at all.
 
-$$
-\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
-$$
+<p align="center"><img src="svgs/8dc7e06dfa61487068832c5fd87b8656.svg?invert_in_darkmode" align=middle width=116.86703984999998pt height=44.89738935pt/></p>
 
 ## Examples of algorithmic problems
 

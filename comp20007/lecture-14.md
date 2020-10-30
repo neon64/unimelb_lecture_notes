@@ -12,24 +12,24 @@ Dictionary - abstract data structure
 
 Variety of implementations:
 
-- unsorted array: $O(n)$ search
-- sorted array: $O(\log n)$ search, $O(n)$ insert/delete
-- binary tree: O($h$) where $h$ is the height of the tree
-- self-balancing binary tree: $O(\log n)$ for both
+- unsorted array: <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/> search
+- sorted array: <img src="svgs/0d4b7f5b66e994af32a32cfa26868d53.svg?invert_in_darkmode" align=middle width=59.62030469999999pt height=24.65753399999998pt/> search, <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/> insert/delete
+- binary tree: O(<img src="svgs/2ad9d098b937e46f9f58968551adac57.svg?invert_in_darkmode" align=middle width=9.47111549999999pt height=22.831056599999986pt/>) where <img src="svgs/2ad9d098b937e46f9f58968551adac57.svg?invert_in_darkmode" align=middle width=9.47111549999999pt height=22.831056599999986pt/> is the height of the tree
+- self-balancing binary tree: <img src="svgs/0d4b7f5b66e994af32a32cfa26868d53.svg?invert_in_darkmode" align=middle width=59.62030469999999pt height=24.65753399999998pt/> for both
 
 ## Basic binary Search Tree
 
-Average case, balanced ($h = \log(n)$)
+Average case, balanced (<img src="svgs/4627f764e98ec30111199b5851009dda.svg?invert_in_darkmode" align=middle width=75.27396524999997pt height=24.65753399999998pt/>)
 
-- Search: $\Theta(\log n)$
-- Insert: $\Theta(\log n) + \Theta(1) \in \Theta(\log n)$
+- Search: <img src="svgs/8f3a45a2d0c8db44abd77c529aecb6f2.svg?invert_in_darkmode" align=middle width=59.41031249999999pt height=24.65753399999998pt/>
+- Insert: <img src="svgs/d187b3dc55c8b993d53a3f72d67dcccc.svg?invert_in_darkmode" align=middle width=192.79303064999996pt height=24.65753399999998pt/>
   - search for element, and the insert in constant time
-- Delete: $\Theta(\log n) + \Theta(\log n) \in \Theta(\log n)$
+- Delete: <img src="svgs/5454d72e995a3ae05bee688f9c2f14e4.svg?invert_in_darkmode" align=middle width=218.41326704999994pt height=24.65753399999998pt/>
   - search for element + logn operations to rearrange the tree
 
 Worst-case: highly unbalanced binary search tree - a **STICK**
 
-- Search: $\Theta(n)$, Insert: $\Theta(n)$, Delete: $\Theta(n)$
+- Search: <img src="svgs/272e3ab168729ac17efd78e4c03be40f.svg?invert_in_darkmode" align=middle width=35.43774299999999pt height=24.65753399999998pt/>, Insert: <img src="svgs/272e3ab168729ac17efd78e4c03be40f.svg?invert_in_darkmode" align=middle width=35.43774299999999pt height=24.65753399999998pt/>, Delete: <img src="svgs/272e3ab168729ac17efd78e4c03be40f.svg?invert_in_darkmode" align=middle width=35.43774299999999pt height=24.65753399999998pt/>
 
   - everything decays, as if we used a linked-list
 
@@ -63,15 +63,15 @@ Two options to solve this:
   
 
 - Insertion:
-  - perform standard BST insert for node $w$,
-  - starting from $w$, travel up and find the first unbalanced node (the *lowest* node with balance factor 2 or -2)
-  - rebalance by performing appropriate rotations on the subtree rooted with $z$, the first unbalanced node 
+  - perform standard BST insert for node <img src="svgs/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode" align=middle width=12.210846449999991pt height=14.15524440000002pt/>,
+  - starting from <img src="svgs/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode" align=middle width=12.210846449999991pt height=14.15524440000002pt/>, travel up and find the first unbalanced node (the *lowest* node with balance factor 2 or -2)
+  - rebalance by performing appropriate rotations on the subtree rooted with <img src="svgs/f93ce33e511096ed626b4719d50f17d2.svg?invert_in_darkmode" align=middle width=8.367621899999993pt height=14.15524440000002pt/>, the first unbalanced node 
     - four possible cases.
 
 
 
 - Deletion:
-  - perform standard BST deletion for node $w$
+  - perform standard BST deletion for node <img src="svgs/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode" align=middle width=12.210846449999991pt height=14.15524440000002pt/>
   - potentially rebalance (same as for AVL tree insertion)
 
 
@@ -109,10 +109,10 @@ Changed tree representation: now allowing multiple elements **and** multiple chi
 
 
 - 3-node: 2 elements, at most three children
-  - two elements $m, n$
-  - L: x < $m$
-  - M: $m$ < x < $n$
-  - R: x > $n$
+  - two elements <img src="svgs/b4630e10519a8a056e78a90a3a0a281a.svg?invert_in_darkmode" align=middle width=31.605860549999992pt height=14.15524440000002pt/>
+  - L: x < <img src="svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.433101099999991pt height=14.15524440000002pt/>
+  - M: <img src="svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.433101099999991pt height=14.15524440000002pt/> < x < <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>
+  - R: x > <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>
 
 - 
 

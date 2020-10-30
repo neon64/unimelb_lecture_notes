@@ -89,7 +89,7 @@ Division is more expensive on most CPUs - but we assume all 'basic operations' t
 
 **Best-case** - optimistic assumptions about structure of the input
 
-**Average-case** - aims to find the *expected* running time across all possible inputs of size $n$. (importantly, not necessarily an average of the best and worst case complexities)
+**Average-case** - aims to find the *expected* running time across all possible inputs of size <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>. (importantly, not necessarily an average of the best and worst case complexities)
 
 **Amortised** - takes the complexity over many runs of input, not just  asingle run
 
@@ -101,24 +101,15 @@ Division is more expensive on most CPUs - but we assume all 'basic operations' t
 
 **Average-case:** O(n)
 
-If the probability of a successful search is equal to p ($0 \leq p \leq 1$),  then the average number of average number of key comparisons $C_{avg}(n)$ is
+If the probability of a successful search is equal to p (<img src="svgs/587c49fb1eb1319359be1f4ca114cc25.svg?invert_in_darkmode" align=middle width=68.54424719999999pt height=21.18721440000001pt/>),  then the average number of average number of key comparisons <img src="svgs/52c0078295a19e4824aed82133ed57dd.svg?invert_in_darkmode" align=middle width=56.16765824999998pt height=24.65753399999998pt/> is
 
-$$
-p \cdot \frac{n+1}{2} + n \cdot (1-p)
-$$
+<p align="center"><img src="svgs/1f4b1f2977a59d3e6ca5ed0a3fbddc28.svg?invert_in_darkmode" align=middle width=153.4614576pt height=32.990165999999995pt/></p>
 
 Probability of finding in the first, second, third etc... position:
 
-$$
-1 \cdot \frac{p}{n} + 2 \cdot \frac{p}{n} + 3 \cdot \frac{p}{n} + \dots \\
-= \frac{p}{n} \sum_{i=1}^{i}i \\
-= \frac{p}{n} \frac{(n+1)n}{2} \\
-= \frac{p(n+1)}{2}
-$$
+<p align="center"><img src="svgs/c7d06ae428cc08f341e248d280a280f5.svg?invert_in_darkmode" align=middle width=438.1455705pt height=47.5572042pt/></p>
 
-$$
-\frac{p}{n}\cdot \frac{n+1}{2}
-$$
+<p align="center"><img src="svgs/ec6031197e499534345d7b861013122f.svg?invert_in_darkmode" align=middle width=63.86133105pt height=32.990165999999995pt/></p>
 
 > "Large input is what matters"
 > 

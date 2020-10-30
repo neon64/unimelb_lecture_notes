@@ -2,7 +2,7 @@
 
 ## Mergesort
 
-$O(n \log(n))$ - not bad
+<img src="svgs/d00c344f0e1d3ce6ada4c1220d0a133c.svg?invert_in_darkmode" align=middle width=82.27261349999998pt height=24.65753399999998pt/> - not bad
 
 ```c
 
@@ -23,7 +23,7 @@ Mergesort takes O(n log (n)) time in the *worst case*.
 
 But it needs a temp array T half the size of the original input - can be used in all recursive calls.
 
-Complexity: exactly $n log_2(n) - n + 1$.
+Complexity: exactly <img src="svgs/09621bea3b9b399106262ac139e83d21.svg?invert_in_darkmode" align=middle width=119.19909209999999pt height=24.65753399999998pt/>.
 
 ## Algorithms
 

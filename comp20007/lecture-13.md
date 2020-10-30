@@ -15,7 +15,7 @@ Naive priority queue - just a plain array
 
 - Is this basically **selection sort**? Yes
 
-- $\Theta(n^2)$ - not good
+- <img src="svgs/7f673488709d91c2cf326d97e5a437c3.svg?invert_in_darkmode" align=middle width=42.81220349999999pt height=26.76175259999998pt/> - not good
 
 ## Heap
 
@@ -33,12 +33,12 @@ a **balanced**, **complete**, **binary** tree
   - this is a *max heap*
   - can also have a *min heap* where the parent's key is lower than the children
 
-- `insert` - $O(\log n)$
+- `insert` - <img src="svgs/0d4b7f5b66e994af32a32cfa26868d53.svg?invert_in_darkmode" align=middle width=59.62030469999999pt height=24.65753399999998pt/>
   
   - insert at end
   - sift up
 
-- `eject` - $O(\log n)$
+- `eject` - <img src="svgs/0d4b7f5b66e994af32a32cfa26868d53.svg?invert_in_darkmode" align=middle width=59.62030469999999pt height=24.65753399999998pt/>
 
 - - swap with end
   - sift down
@@ -47,10 +47,10 @@ a **balanced**, **complete**, **binary** tree
 
 - insert a single element: insert at the end, then swap with parent until the tree satisfies the *heap property* again
   
-  - $O(\log n)$
+  - <img src="svgs/0d4b7f5b66e994af32a32cfa26868d53.svg?invert_in_darkmode" align=middle width=59.62030469999999pt height=24.65753399999998pt/>
   - *top down heap construction*
 
-- can do better than $O(n \log n)$ to build a heap
+- can do better than <img src="svgs/ff514eba41c59f90c20d895e80719763.svg?invert_in_darkmode" align=middle width=72.2268393pt height=24.65753399999998pt/> to build a heap
 
   - called *bottom-up heap construction*
   - call `heapify` an existing tree
@@ -58,7 +58,7 @@ a **balanced**, **complete**, **binary** tree
     - sifting down deeper nodes is cheaper - because you're close to the bottom
     - and on average, nodes in a complete binary tree are closer to the bottom than the top
     - this is why **sift down** is used instead of **sift up** (sift up)
-  - complexity analysis (in lecture) shows heapify is $O(n)$, when using **sift down**
+  - complexity analysis (in lecture) shows heapify is <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/>, when using **sift down**
 
 
 
@@ -92,13 +92,9 @@ The downward-moving node is swapped with the *larger* of its children in a max-h
 
 - after half-way through the array, all elements are leaf nodes
 
-$$
-\text{after } 2^h - 1 \text{ where h is the height of the array}
-$$
+<p align="center"><img src="svgs/4a7c60a8f9b4facdc604b634653b841f.svg?invert_in_darkmode" align=middle width=330.9386157pt height=17.9744895pt/></p>
 
-$$
-\forall i \in \{ 0, 1, \dots , n\} A[i] \leq A\left[\frac{i}{2}\right]
-$$
+<p align="center"><img src="svgs/8bdd57c19dfa003f75e454f319993f63.svg?invert_in_darkmode" align=middle width=215.09246714999998pt height=39.452455349999994pt/></p>
 
 ### Implementation
 
@@ -131,7 +127,7 @@ function BottomUpHeapify(A[1..n]) // instead of 0 to n+1
 
 ### Analysis
 
-Assume $n = 2^{h+1}-1$ - heap is complete
+Assume <img src="svgs/f2b477c258b331bb4b63b32b99246a01.svg?invert_in_darkmode" align=middle width=93.47596829999998pt height=27.91243950000002pt/> - heap is complete
 
 for simplicity
 
@@ -139,9 +135,9 @@ counting the number of "down-sifts" - involves comparison to check which child i
 
 ![](/home/chris/drive/Uni/COMP20007 Design of Algorithms/screenshot_2020-05-05_21-06-28_752997975.png)
 
-- $2^i$ nodes per level
+- <img src="svgs/3a4a83447347e8eae50b856ef8a03468.svg?invert_in_darkmode" align=middle width=12.87010889999999pt height=27.15900329999998pt/> nodes per level
 
-- $2n - 2\log (n + 1) \implies O(n)$
+- <img src="svgs/389672488507122c83dc5dcf4598413e.svg?invert_in_darkmode" align=middle width=201.72807269999998pt height=24.65753399999998pt/>
 
 - number of nodes increases with the level, but the number of down-sifts at decreases with the level
   
@@ -173,17 +169,11 @@ function Eject(A[1..i])
 
 - Worst case:
 
-$$
-\text{heapify:} \Theta(n) \\
-\text{eject:} \Theta(\log n) \\
-\Theta(n) + n \times \Theta(\log(n)) \in \Theta(n \log n)
-$$
+<p align="center"><img src="svgs/1ef05969435710b033be239bb58b6559.svg?invert_in_darkmode" align=middle width=436.4199048pt height=16.438356pt/></p>
 
 - Best case:
 
-$$
-\Theta(n) \text{ when } \text{eject is constant}
-$$
+<p align="center"><img src="svgs/5a51abb807213967035618c0983031b7.svg?invert_in_darkmode" align=middle width=200.00430615pt height=16.438356pt/></p>
 
 (only happens if all the elements are the same)
 

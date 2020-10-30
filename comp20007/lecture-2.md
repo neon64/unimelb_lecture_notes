@@ -4,11 +4,11 @@
 
 `gcd(m, n)`
 
-**Step 1:** if $n=0$ return the value of $m$ and stop
+**Step 1:** if <img src="svgs/73736f8725b398dd13e17ef7c1d0a94a.svg?invert_in_darkmode" align=middle width=40.00371704999999pt height=21.18721440000001pt/> return the value of <img src="svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.433101099999991pt height=14.15524440000002pt/> and stop
 
 **Step 2:** Divide m by n and assign the value of the remainder to r
 
-**Step 3:** Assign the value of n to m and the value of r to $n$, go to step 1.
+**Step 3:** Assign the value of n to m and the value of r to <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>, go to step 1.
 
 `gcd(m, 0) = m` - our stopping condition
 
@@ -25,16 +25,12 @@ return m
 
 #### Why does it terminate?
 
-1. because the value of $n$ is always decreasing
-2. $n$ is always decreasing because the remainder can be from 0 to $n-1$
+1. because the value of <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> is always decreasing
+2. <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> is always decreasing because the remainder can be from 0 to <img src="svgs/efcf8d472ecdd2ea56d727b5746100e3.svg?invert_in_darkmode" align=middle width=38.17727759999999pt height=21.18721440000001pt/>
 
 #### Another option: use prime factorisation to compute GCD
 
-$$
-60 = 2 \cdot 2 \cdot 3 \cdot 5 \\
-24 = 2 \cdot 2 \cdot 2 \cdot 3 \\
-12 = 2\cdot2 \cdot 3
-$$
+<p align="center"><img src="svgs/ba5def3bd77374c0a1e24849bb298f0a.svg?invert_in_darkmode" align=middle width=300.45530625pt height=10.5936072pt/></p>
 
 Problems:
 
@@ -43,19 +39,19 @@ Problems:
 
 #### Faster identification of primes: Sieve of Eratosthenes
 
-- only need to do $\sqrt{n}$ calculations to find which numbers up to $n$ are prime
+- only need to do <img src="svgs/4fd78aba72015f7697ab298a89ec8a9c.svg?invert_in_darkmode" align=middle width=23.565549149999992pt height=24.995338500000003pt/> calculations to find which numbers up to <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> are prime
 
 ## Computability
 
 - discussed more in the 3rd-year subject *Models of Computation*
 - Alan Turing showed that - some problems don't have algorithmic solutions, some just don't have efficient solutions
-  - travelling salesman problem is NP hard $\therefore$  it can be proven that you can't find an efficient solution
+  - travelling salesman problem is NP hard <img src="svgs/dd346d5af971e1d1e1f87f86bb18597c.svg?invert_in_darkmode" align=middle width=10.95894029999999pt height=22.758598499999987pt/>  it can be proven that you can't find an efficient solution
   - halting problem for Turing machines is undecidable - you cannot compute it
 - Turing award = equivalent to Nobel prize for computer science
 
 ## *"time puzzle"*
 
-- something you can prove that can't be parallelized thus must take e.g.: $n$ years minimum
+- something you can prove that can't be parallelized thus must take e.g.: <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> years minimum
 
 ## Approximation techniques
 

@@ -12,11 +12,11 @@
   
   - shift the pattern until the last occurence of the char 
 
-- Case 3: last character matches but one of the $m-1$ characters does not match and the last character is unique.
+- Case 3: last character matches but one of the <img src="svgs/aac03c299a5a829c1f94d55c54791cc4.svg?invert_in_darkmode" align=middle width=42.743500799999985pt height=21.18721440000001pt/> characters does not match and the last character is unique.
   
   - shift hte whole pattern
 
-- Case 4: last character matches but one of the $m-1$ characters does not match and the last character is not unique
+- Case 4: last character matches but one of the <img src="svgs/aac03c299a5a829c1f94d55c54791cc4.svg?invert_in_darkmode" align=middle width=42.743500799999985pt height=21.18721440000001pt/> characters does not match and the last character is not unique
   
   - shift the pattern until the last occurrence of the pattern
 
@@ -24,7 +24,7 @@
 
 map from characters to shifts
 
-$c \to t(c)$
+<img src="svgs/94a3a5eced33ba33ae571960d621b678.svg?invert_in_darkmode" align=middle width=58.519739849999986pt height=24.65753399999998pt/>
 
 ## Find shifts
 
@@ -38,7 +38,7 @@ $c \to t(c)$
     
     - none previous chars match, can shift 6 along
 
-Worst case - $O(mn)$
+Worst case - <img src="svgs/74ff9597b56d1e5ba834cc5569819dd1.svg?invert_in_darkmode" align=middle width=50.080834649999986pt height=24.65753399999998pt/>
 
     - but for random strings, its linear and faster in practice compared to a brute force version
 

@@ -23,9 +23,7 @@ int (*arr)[8];
 
 ## Linear search with correctness
 
-$$
-\text{define}\; P = (0 \leq i \leq n) \text{ and } (x \notin A[0\dots i-1])
-$$
+<p align="center"><img src="svgs/6e93e64ef98c15750a1d6d1843512310.svg?invert_in_darkmode" align=middle width=329.72565285pt height=16.438356pt/></p>
 
 "if there's coloured sprinkles on one side of the donut then you go arond and you get the coloured sprinkles again"
 

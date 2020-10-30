@@ -49,7 +49,7 @@ What is a spanning tree?
 
 - a connected graph with no cycle
 
-A spanning tree of graph $\langle V,E \rangle$ is a tree $\langle V, E' \rangle$ with $E' \subseteq E$
+A spanning tree of graph <img src="svgs/80807d8c3a3394444007436ee9342441.svg?invert_in_darkmode" align=middle width=43.67579039999999pt height=24.65753399999998pt/> is a tree <img src="svgs/8cb8ffdf017c2a99792c2288c574f87a.svg?invert_in_darkmode" align=middle width=48.28766579999999pt height=24.7161288pt/> with <img src="svgs/0226295eca84329dbd0b61623e6d9cbb.svg?invert_in_darkmode" align=middle width=52.69387859999999pt height=24.7161288pt/>
 
 Minimum spanning tree - each edge has a weight or cost associate with it
 
@@ -111,12 +111,12 @@ function Prim((V, E))
 
 - crude analysis - for each node we look through all edges to pick the best edge (linear search)
   
-  - $O(|V| \cdot |E|)$ (adjacency list)
-  - $O(|V|^2)$ (adjacency matrix)
+  - <img src="svgs/d435a3ad1b89b94e1688148a80a4f782.svg?invert_in_darkmode" align=middle width=82.24194329999999pt height=24.65753399999998pt/> (adjacency list)
+  - <img src="svgs/cf9a728da3d09c73024269d2a97150dc.svg?invert_in_darkmode" align=middle width=55.529796299999994pt height=26.76175259999998pt/> (adjacency matrix)
 
 - However can do better, using a *min-heap* as a priority queue
 
-- however can get down to $O((|V| + |E|)\log |V|)$ with a binary heap and adjacency list
+- however can get down to <img src="svgs/ac6f5a1ce7a098caf80d2f5836243894.svg?invert_in_darkmode" align=middle width=152.33329319999999pt height=24.65753399999998pt/> with a binary heap and adjacency list
 
 ## Dijkstra's Algorithm for Shortest Path
 
@@ -148,17 +148,13 @@ function Dijkstra((V,E), v_0)
 
 Complexity analysis:
 
-$$
-\Theta((|V| + |E|) \log(|V|))
-$$
+<p align="center"><img src="svgs/7fea993d8b0b3860f88071692c41689f.svg?invert_in_darkmode" align=middle width=162.16907684999998pt height=16.438356pt/></p>
 
 - original algorithm, as shown in lectures, with a min-priority queue
 
 
 
 but 
-$$
-\Theta(|E| + |V| \log |V|)
-$$
+<p align="center"><img src="svgs/7fab30630b56ddf1d0349430a32c405b.svg?invert_in_darkmode" align=middle width=139.33786845pt height=16.438356pt/></p>
 
 - with a fibonacci heap min priority queue

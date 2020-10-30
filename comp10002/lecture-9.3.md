@@ -4,7 +4,7 @@
 
 super quick searching!!!
 
-depth is on average $1.4 \log_2(n)$
+depth is on average <img src="svgs/c22fb4f7e31f9f3cc4625d0d70217902.svg?invert_in_darkmode" align=middle width=75.00398234999999pt height=24.65753399999998pt/>
 
 ```c
 // you need this advanced declaration so it can refer to itself

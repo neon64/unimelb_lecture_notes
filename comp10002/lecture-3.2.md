@@ -35,15 +35,15 @@ three columns
 
 [Wikipedia](https://en.wikipedia.org/wiki/Tower_of_Hanoi)
 
-$2^n-1$ minimum moves for a tower of height $n$
+<img src="svgs/fe9381b12bf563bf6fe9b69a65836f30.svg?invert_in_darkmode" align=middle width=45.47754749999999pt height=21.839370299999988pt/> minimum moves for a tower of height <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>
 
 Recursive solution:
 
-Move tower of size $n-1$ from A to B
+Move tower of size <img src="svgs/efcf8d472ecdd2ea56d727b5746100e3.svg?invert_in_darkmode" align=middle width=38.17727759999999pt height=21.18721440000001pt/> from A to B
 
 Move bottom piece from A to C
 
-Move tower of size $n-1$ from B to C
+Move tower of size <img src="svgs/efcf8d472ecdd2ea56d727b5746100e3.svg?invert_in_darkmode" align=middle width=38.17727759999999pt height=21.18721440000001pt/> from B to C
 
 -> now everything is on place C
 

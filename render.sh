@@ -11,7 +11,7 @@ git checkout svgs || exit
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
-for DIR in comp10002/pattern_search/ comp10002/
+for DIR in comp10002/pattern_search/ comp10002/ comp20007/
 do
     cd "$SCRIPTPATH" || exit
     cd "$DIR" || exit

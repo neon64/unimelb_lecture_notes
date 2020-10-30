@@ -2,7 +2,7 @@
 
 [[back to COMP10002 home]](../README.md)
 
-**Given:** a text sequence $T[0..n-1]$
+**Given:** a text sequence <img src="svgs/0a007ca4b91550a6017b7c79204efae8.svg?invert_in_darkmode" align=middle width=76.55069399999998pt height=24.65753399999998pt/>
 
 **Question:** how do you find whether a particular pattern occurs in that string?
 

@@ -29,12 +29,7 @@ low through to high - 1
 
 ### Binary search - Efficiency
 
-$$
-\begin{aligned}
-T(n) &= 1 &\text{if } n <= 1 \\
-T(n) &= 1 + T([n/2]) &\text{if } n > 1
-\end{aligned}
-$$
+<p align="center"><img src="svgs/a1816ea0dc9a4ff232c774b7630a811e.svg?invert_in_darkmode" align=middle width=229.17808485pt height=41.09589pt/></p>
 
-Can show that solution is $T(n) = 1 + log_2(n) \implies O(log(n))$
+Can show that solution is <img src="svgs/75324b8f78c6be9934af9f36b7567cc3.svg?invert_in_darkmode" align=middle width=250.64189205pt height=24.65753399999998pt/>
 

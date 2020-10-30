@@ -39,7 +39,7 @@ D' <-- delete(D, key)
 
 Hashing - get keys, create a 'random' number from that information
 
-- $930$ - collision and fish both hash
+- <img src="svgs/e6cb978bb53700bd518a0342acd83024.svg?invert_in_darkmode" align=middle width=24.657628049999992pt height=21.18721440000001pt/> - collision and fish both hash
 
 Use those hashes to index an array A of size t, putting x in the location A[h(x)]. Works fine until you get a collision.
 
@@ -63,7 +63,7 @@ after 23 birthdays on average, will get collisions
 
 instead of an array of `data_t`, we make an array of `list_t`
 
-on average, there are $n/k$ items per list... as long as we grow $k$ according to $n$ the length, we will get constant time lookup (hash operations..)
+on average, there are <img src="svgs/491adc330d58784014b9485b1bc0a4d1.svg?invert_in_darkmode" align=middle width=27.161455199999992pt height=24.65753399999998pt/> items per list... as long as we grow <img src="svgs/63bb9849783d01d91403bc9a5fea12a2.svg?invert_in_darkmode" align=middle width=9.075367949999992pt height=22.831056599999986pt/> according to <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/> the length, we will get constant time lookup (hash operations..)
 
 ## How to calculate hashes?
 

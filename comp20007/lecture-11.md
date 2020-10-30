@@ -41,17 +41,11 @@ function InsertionSort(A[0..n-1]):
 
 - Worst-case: array is sorted but in reverse order
 
-$$
-\sum_{i=1}^{n-1} \sum_{j=0}^{i-1} 1 \\
-= \sum_{i=1}^{n-1} i \\
-= \frac{(n-1)n}{2} \in \Theta(n^2)
-$$
+<p align="center"><img src="svgs/21e9340ae410417e2c8925469803f84b.svg?invert_in_darkmode" align=middle width=267.2642379pt height=49.794650399999995pt/></p>
 
 - Best-case: array is sorted in ascending order
 
-$$
-\sum_{i=1}^{n-1} 1 = n- 1 \in \Theta(n)
-$$
+<p align="center"><img src="svgs/2ebfa14bcc27837f0990b518612a59bb.svg?invert_in_darkmode" align=middle width=151.5352179pt height=47.35857885pt/></p>
 
 - Average case
   
@@ -59,20 +53,20 @@ $$
     
     - why? because we have 'inverted pairs' which are in reverse order
   - best case: 0 inverted pairs
-  - worst case: $n(n-1)/2$ inverted pairs
+  - worst case: <img src="svgs/22ef3b544ce63fa8392dbb8ecc178f09.svg?invert_in_darkmode" align=middle width=77.2680051pt height=24.65753399999998pt/> inverted pairs
     - that's larger than $n$ what
 
-Another way of thinking about this: insertion sort is $\Theta(n + v)$ where $v$ is the number of inverted pairs
+Another way of thinking about this: insertion sort is <img src="svgs/4188f88f244665d504ac835e801d1444.svg?invert_in_darkmode" align=middle width=64.08677549999999pt height=24.65753399999998pt/> where <img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.55786029999999pt height=14.15524440000002pt/> is the number of inverted pairs
 
-- best case:  $v=0 \implies \Theta(n)$
+- best case:  <img src="svgs/7c904ed55b696694007e488b27a05dd9.svg?invert_in_darkmode" align=middle width=118.88099684999999pt height=24.65753399999998pt/>
 
-- worst case: $\Theta(n + \frac{n(n-1)}{2}) = \Theta(n^2)$
+- worst case: <img src="svgs/13f6c5a1bad1f5f5d20b60043bc0c158.svg?invert_in_darkmode" align=middle width=167.55656609999997pt height=33.20539859999999pt/>
 
 - avg: would have somewhere between best and worst case
   
   - say half of the inverted pairs on average
   
-  - $v = \frac{n(n-1)}{4} \implies \Theta(n  + \frac{n(n-1)}{4}) = \Theta(n^2)$
+  - <img src="svgs/bfbfe9f6cac9f64413387f9e688c03d0.svg?invert_in_darkmode" align=middle width=290.07840839999994pt height=33.20539859999999pt/>
   
   - <u>also</u> quadratic complexity on average
 
@@ -115,11 +109,11 @@ v < A[j]
 
 - In-place? Yes
 - Not stable. (Swaps are not **local**)
-- Best, average and worst case is all $\Theta(n^2)$ comparisons
+- Best, average and worst case is all <img src="svgs/7f673488709d91c2cf326d97e5a437c3.svg?invert_in_darkmode" align=middle width=42.81220349999999pt height=26.76175259999998pt/> comparisons
 - Is it input-sensitive? no - has same (bad) time complexity regardless of input
-- However, has guaranteed maximum $O(n)$ swaps - so desirable in some cases.
+- However, has guaranteed maximum <img src="svgs/1f08ccc9cd7309ba1e756c3d9345ad9f.svg?invert_in_darkmode" align=middle width=35.64773519999999pt height=24.65753399999998pt/> swaps - so desirable in some cases.
 
-**Conclusion:** not bad for small $n$
+**Conclusion:** not bad for small <img src="svgs/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode" align=middle width=9.86687624999999pt height=14.15524440000002pt/>
 
 ## Real-World Examples
 

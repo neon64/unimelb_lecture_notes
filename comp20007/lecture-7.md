@@ -7,7 +7,7 @@ Questions which require graph traversal:
 
 ## Depth-first search
 
-- Explore $x$ first, but then, before exploring $y$ and $z$ we keep going deeper and deeper into the
+- Explore <img src="svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/> first, but then, before exploring <img src="svgs/deceeaf6940a8c7a5a02373728002b0f.svg?invert_in_darkmode" align=middle width=8.649225749999989pt height=14.15524440000002pt/> and <img src="svgs/f93ce33e511096ed626b4719d50f17d2.svg?invert_in_darkmode" align=middle width=8.367621899999993pt height=14.15524440000002pt/> we keep going deeper and deeper into the
 
 - Need to mark nodes to avoid revisiting the same nodes
   
@@ -55,15 +55,15 @@ The "marking" of nodes is usually done by maintaining a separate array, `mark`, 
 
 How do we find adjacent nodes?
 
-- using an adjacency **matrix** we consider each entry for each $w$ in $V$, here, the complexity of graph traversal is $\Theta(|V|^2)$
-- using an adjacency **list** we traverse the list, complexity is $\Theta(|V| + |E|)$
+- using an adjacency **matrix** we consider each entry for each <img src="svgs/31fae8b8b78ebe01cbfbe2fe53832624.svg?invert_in_darkmode" align=middle width=12.210846449999991pt height=14.15524440000002pt/> in <img src="svgs/a9a3a4a202d80326bda413b5562d5cd1.svg?invert_in_darkmode" align=middle width=13.242037049999992pt height=22.465723500000017pt/>, here, the complexity of graph traversal is <img src="svgs/c155bc8304ac0e3bca4b096a6ed42dca.svg?invert_in_darkmode" align=middle width=55.319805749999986pt height=26.76175259999998pt/>
+- using an adjacency **list** we traverse the list, complexity is <img src="svgs/747f03346f55b417c0a809b94dc5da56.svg?invert_in_darkmode" align=middle width=90.25116209999999pt height=24.65753399999998pt/>
   
   - have to look at each vertex in the adjacency list
-- notation: we have used $\Theta$ instead of $O$ because this is a lower bound as well
+- notation: we have used <img src="svgs/b35e24d8a08c0ab01195f2ad2a78fab7.svg?invert_in_darkmode" align=middle width=12.785434199999989pt height=22.465723500000017pt/> instead of <img src="svgs/9afe6a256a9817c76b579e6f5db9a578.svg?invert_in_darkmode" align=middle width=12.99542474999999pt height=22.465723500000017pt/> because this is a lower bound as well
 
 
 
-- A directed graph $G$ contains no cycles if and only if a depth first search of $G$ yields no back edges. -> is a DAG
+- A directed graph <img src="svgs/5201385589993766eea584cd3aa6fa13.svg?invert_in_darkmode" align=middle width=12.92464304999999pt height=22.465723500000017pt/> contains no cycles if and only if a depth first search of <img src="svgs/5201385589993766eea584cd3aa6fa13.svg?invert_in_darkmode" align=middle width=12.92464304999999pt height=22.465723500000017pt/> yields no back edges. -> is a DAG
 - If a DFS yields all nodes on the first try, then the graph is **connected**
 - **In terms of DFS forests, how can we tell if we have traversed a DAG?**
   - only get one DFS forest?
@@ -79,7 +79,7 @@ How do we find adjacent nodes?
 
 
 - in a DFS of an <u>undirected graph</u> you can only get tree edges, or back edges
-  - since $(u,v)$ implies $(v, u)$ in an undirected graph, one could argue that forward edges and back edges are really the same thing. While this is true, one tends to classify edges by the <u>first</u> definition encountered above ^^
+  - since <img src="svgs/2c4a788685c5c98364a6d234f540b9eb.svg?invert_in_darkmode" align=middle width=38.05943129999999pt height=24.65753399999998pt/> implies <img src="svgs/dbc3b5eafd5c3a7d21c1c26a294aec30.svg?invert_in_darkmode" align=middle width=38.05943129999999pt height=24.65753399999998pt/> in an undirected graph, one could argue that forward edges and back edges are really the same thing. While this is true, one tends to classify edges by the <u>first</u> definition encountered above ^^
 
 ## Breath-first search
 
@@ -116,15 +116,15 @@ function BFS({V, E})
 ```
 
 - BFS has the same complexity as DFS
-- **Example problem:** given a graph and two nodes $a$ and $b$, how to find the fewest number of edges between two nodes?
-  - Start a BFS from $a$, stop as soon as you find $b$.
+- **Example problem:** given a graph and two nodes <img src="svgs/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode" align=middle width=8.68915409999999pt height=14.15524440000002pt/> and <img src="svgs/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode" align=middle width=7.054796099999991pt height=22.831056599999986pt/>, how to find the fewest number of edges between two nodes?
+  - Start a BFS from <img src="svgs/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode" align=middle width=8.68915409999999pt height=14.15524440000002pt/>, stop as soon as you find <img src="svgs/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode" align=middle width=7.054796099999991pt height=22.831056599999986pt/>.
   - This will find the *fewest* number of edges
 
 ## Topological sorting
 
 - Scheduling problems
 
-- Assume an edge from $a$ to $b$ means $b$ depends on $a$ in order to start.
+- Assume an edge from <img src="svgs/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode" align=middle width=8.68915409999999pt height=14.15524440000002pt/> to <img src="svgs/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode" align=middle width=7.054796099999991pt height=22.831056599999986pt/> means <img src="svgs/4bdc8d9bcfb35e1c9bfb51fc69687dfc.svg?invert_in_darkmode" align=middle width=7.054796099999991pt height=22.831056599999986pt/> depends on <img src="svgs/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode" align=middle width=8.68915409999999pt height=14.15524440000002pt/> in order to start.
 
 - Then the graph must be a dag (directed acyclic graph)
 
@@ -139,9 +139,9 @@ function BFS({V, E})
 
 Why is this algorithm correct?
 
-Consider an edge (u, v). Then $u$ is sitting below $v$ on the stack. $v$ is popped off first, then $u$
+Consider an edge (u, v). Then <img src="svgs/6dbb78540bd76da3f1625782d42d6d16.svg?invert_in_darkmode" align=middle width=9.41027339999999pt height=14.15524440000002pt/> is sitting below <img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.55786029999999pt height=14.15524440000002pt/> on the stack. <img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.55786029999999pt height=14.15524440000002pt/> is popped off first, then <img src="svgs/6dbb78540bd76da3f1625782d42d6d16.svg?invert_in_darkmode" align=middle width=9.41027339999999pt height=14.15524440000002pt/>
 
-So in our list $u$ will be listed before $v$ (because reverse order)
+So in our list <img src="svgs/6dbb78540bd76da3f1625782d42d6d16.svg?invert_in_darkmode" align=middle width=9.41027339999999pt height=14.15524440000002pt/> will be listed before <img src="svgs/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode" align=middle width=8.55786029999999pt height=14.15524440000002pt/> (because reverse order)
 
 #### Another algorithm
 
