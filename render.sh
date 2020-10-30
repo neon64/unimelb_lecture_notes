@@ -21,3 +21,6 @@ do
         python -m readme2tex "$FILE" --output "$FILE" --nocdn
     done
 done
+
+git add --all .
+git commit -a
